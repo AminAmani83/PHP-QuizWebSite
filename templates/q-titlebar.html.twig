@@ -1,0 +1,33 @@
+<!-- title, score, timer, etc -->
+<div class="row bg-info pt-3 pb-2" id="title-bar">
+    <div class="col-6 p-1 pl-4">
+        <h2 class="text-left"><strong>{{ quizTitle }}</strong></h2>
+    </div>
+    <div class="col-2 text-center p-1">
+        {% if gameStatus is same as("notStarted") %}
+            <form action="{{ formActionTargetWithoutTopic }}" method="POST">
+                <button type="submit" name="btn-start" class="btn btn-warning">Start</button>
+            </form>
+        {% endif %}
+        {% if gameStatus is same as("active") %}
+            <form action="{{ formActionTargetWithoutTopic }}" method="POST">
+                <button type="submit" name="btn-giveup" class="btn btn-warning">Give Up</button>
+            </form>
+        {% endif %}
+        {% if gameStatus is same as("ended") %}
+            {{ message }}<br/>
+            <form action="{{ formActionTargetWithTopic }}" method="POST">
+                <button type="submit" name="btn-playagain" class="button-as-link text-light">
+                    Play Again
+                </button>
+            </form>
+        {% endif %}
+    </div>
+    <div class="col-2 text-center p-1">
+        <strong>Score</strong><br>{{ score }}
+    </div>
+    <div class="col-2 text-center p-1">
+        <strong>Time</strong><br>
+        <span id="timer">{{ timer }}</span>
+    </div>
+</div>

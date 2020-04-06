@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block pagetitle %}Quiz: {{ quizTitle }} - {{ parent() }}{% endblock %}
+
+{% block pagedescription %}Test you ability to guess the answer in topic {{ quizTitle }}, before the time runs out.{% endblock %}
+
+{% block pagekeywords %}{{ parent() }}, {{ quizTitle }}{% endblock %}
+
+{% block content %}
+    <!-- Quiz -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 pt-5 pb-5">
+                    {% include "q-titlebar.html.twig" %}
+                    {% include "q-inputbar.html.twig" %}
+                    {% include "q-imagebox.html.twig" %}
+                    {% include "q-paginator.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block customjs %}
+    {% if javaScriptAssistMode == true %}
+        {# passing the answer to JS #}
+        <script>
+            const answer = "{{ cipheredAnswer }}";
+        </script>
+    {% endif %}
+<script src="js/quiz.js"></script>
+{% endblock %}

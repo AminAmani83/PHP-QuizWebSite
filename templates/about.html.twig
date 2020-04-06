@@ -1,0 +1,127 @@
+{% extends "base.html.twig" %}
+
+{% block pagetitle %}About This Project - {{ parent() }}{% endblock %}
+
+{% block pagedescription %}A short description about the features of this project.{% endblock %}
+
+{% block pagekeywords %}{{ parent() }}, about, project, PHP, MySQL{% endblock %}
+
+{% block content %}
+    <!-- Main -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 pt-5 pb-5">
+
+                    <!-- title -->
+                    <div class="row bg-info pt-3 pb-2" id="title-bar">
+                        <div class="col-12 p-1 pl-4">
+                            <h2 class="text-left"><strong>About This Project</strong></h2>
+                        </div>
+                    </div>
+
+                    <!-- Intro -->
+                    <div class="row bg-warning pt-2 justify-content-center" id="intro">
+                        <div class="col-10 pt-2 pb-3 text-center">
+                            <strong>Technologies used: </strong> PHP, MySQL, HTML, CSS, Bootstrap and JavaScript
+                        </div>
+                    </div>
+
+                    <!-- Main Text -->
+                    <div class="row bg-info pt-4 pb-2 justify-content-center" id="about-text">
+                        <div class="col-10 pt-1 pb-5 text-justify">
+                            <h4><strong>Introduction</strong></h4>
+                            <hr>
+                            <p>This is a PHP project to create a website with Entertainment and Educational purposes,
+                                targeting a broad range of audiences (pretty much everyone that can read and write),
+                                and it consists of the following parts:</p>
+                            <h5><strong>1. Database</strong></h5>
+                            <p>The database has 2 tables: quiz and quiz_topic which have a one-to-many relationship.
+                                There are 2 functions in the PHP code that query the database, one queries all the
+                                available topics to be displayed on the main page, and the other queries a certain
+                                number of questions and answers for a specific topic by joining the two tables.</p>
+                            <p><strong>Security and Error Handling:</strong> If the query result is empty, the user is
+                                redirected to the
+                                Home
+                                page. All queries are sanitize by Meekro DB.</p>
+
+                            <h5><strong>2. PHP</strong></h5>
+                            <p>The code uses a TWIG template to separate the logic from the view. Also all the functions
+                                are well documented and placed in a separate file.</p>
+                            <p>The database is queried only once per game to fetch all the necessary questions and
+                                answers for that game. A session variable is used to carry these data as well as the
+                                status of each question (answered/un-answered) between different pages. Other session
+                                variables are used to keep track of the time left and the status of the game (Not
+                                Started / Active / Ended).</p>
+                            <p>The quiz UI is very flexible, users can click on the Next or Prev buttons or used the
+                                provided thumbnails to navigate between pages. Furthermore, the thumbnails provide
+                                visual cues about the status of each question as well as the currently active
+                                question.</p>
+                            <p><strong>Security and Error Handling:</strong> The user's answers are not saved to the DB,
+                                nor displayed on any HTML page, once the user answers a question correctly, that
+                                question will be marked as answered, and the correct answer which was fetched from the
+                                Database earlier, will be displayed on the page. GET and POST requests are validated
+                                once submitted to the server, and default pages will load if required values are not
+                                provided or incorrect.</p>
+
+                            <h5><strong>3. HTML, CSS and Bootstrap</strong></h5>
+                            <p>The design uses valid HTML-5 and CSS-3 code and is fully responsive. The title,
+                                description and keywords meta tags are customized for each page and various other SEO
+                                best practices are followed.</p>
+
+                            <h5><strong>4. JavaScript</strong></h5>
+                            <p>Since this is a PHP project, JavaScript is used only to add extra features to the quiz
+                                pages. The quizzes rely only on the back-end PHP code for functioning and the game is
+                                perfectly playable without the JavaScript code. Here is what JS brings to the table:
+                            </p>
+                            <ul>
+                                <li>Once the page loads, the input field will gain focus.</li>
+                                <li>JS makes the timer show the real time left, and when the time is up, it will
+                                    simulate a click on the Next button to force a page refresh, so that PHP can take
+                                    over and stop the game. Without this feature, the game only ends when the user
+                                    clicks Next after the timeout. Furthermore, PHP is in charge of keeping the time,
+                                    and JS only takes the time from PHP and makes it's display live on the page.
+                                </li>
+                                <li>If the JavaScript Assist variable is set to "true" in the PHP code, at each page
+                                    load, PHP passes the correct answer to JS, and JS will change the text-color of the
+                                    user input to green if the answer is correct. This helps users to avoid typos before
+                                    submitting their answer. Since the answer is passed in the HTML source code, it is
+                                    ciphered by PHP and later deciphered by JS, so that the users cannot find the answer
+                                    by looking at the source code.
+                                </li>
+                            </ul>
+                            <h4><strong>Future Work</strong></h4>
+                            <hr>
+                            <p>The Admin panel can be extended to allow for adding new quiz topics and quiz questions to
+                                the website. Plus full CRUD functionality on the database values.</p>
+                            <p>Users could be able to register, to save their scores, and the high scores can be
+                                displayed for each quiz.</p>
+                            <p>When taking a quiz, if the user presses the Next button, instead of displaying the next
+                                question, which might already have been answered, the UI can jump over to the next
+                                un-answered question.</p>
+                            <p>A "Hint" button can be added to provide a hint message to the user for each question
+                                (these hints would be saved in th database as well). Another option would be having a
+                                "Hint" button that types the first letter of the answer for the user.</p>
+                            <p>Related information about each question can be displayed on the page during the game, or
+                                after the game ends. For example general information about the movie plots or a short
+                                biography of famous people.</p>
+
+                            <button onClick="window.print()" class="btn btn-warning" id="print-btn">
+                                <i class="fa fa-fw fa-print"></i> Print
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Foot Note -->
+                    <div class="row bg-warning p-3 justify-content-center" id="foot-note">
+                        <div class="col-10 text-center">
+                            Written by: Amin Amani, Montreal, March 2020.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block customjs %}{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <!-- Main -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 pt-5 pb-5">
+
+                    <!-- title -->
+                    <div class="row bg-info pt-3 pb-2" id="title-bar">
+                        <div class="col-12 p-1 pl-4">
+                            <h2 class="text-left float-left"><strong>Admin Panel</strong></h2>
+                            <form action="logout.php" method="POST">
+                                <button type="submit" class="btn float-right btn-warning mr-4">Log Out</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Intro -->
+                    <div class="row bg-warning pt-2" id="intro">
+                        <div class="col pt-2 pb-3 text-center">
+                            <strong>Please Enter Your Desired Settings Below:</strong>
+                        </div>
+                    </div>
+
+                    <!-- Admin Control Panel -->
+                    <div class="row bg-info pt-4 pb-2 justify-content-center" id="image-box">
+                        <div class="col-8 col-md-6 pt-3 pb-3 mb-3 text-left border">
+                            <form action="#" method="POST">
+                                <div class="form-group">
+                                    <label class="text-capitalize" for="{{ quizSettings[0].setting_key }}">
+                                        {{ quizSettings[0].setting_key|replace({ '_' : ' ' }) }}
+                                    </label>
+                                    <input type="number" class="form-control"
+                                           value="{{ quizSettings[0].setting_value }}"
+                                           name="{{ quizSettings[0].setting_key }}"
+                                           id="{{ quizSettings[0].setting_key }}" />
+
+                                    <label class="text-capitalize pt-3" for="{{ quizSettings[1].setting_key }}">
+                                        {{ quizSettings[1].setting_key|replace({ '_' : ' ' }) }}
+                                    </label>
+                                    <input type="number" class="form-control"
+                                           value="{{ quizSettings[1].setting_value }}"
+                                           name="{{ quizSettings[1].setting_key }}"
+                                           id="{{ quizSettings[1].setting_key }}" />
+
+                                    <label class="text-capitalize pt-3" for="{{ quizSettings[2].setting_key }}">
+                                        {{ quizSettings[2].setting_key|replace({ '_' : ' ' }) }}
+                                    </label>
+                                    <input type="text" class="form-control"
+                                           value="{{ quizSettings[2].setting_value }}"
+                                           name="{{ quizSettings[2].setting_key }}"
+                                           id="{{ quizSettings[2].setting_key }}" />
+
+                                    <label class="text-capitalize pt-3" for="{{ quizSettings[3].setting_key }}">
+                                        {{ quizSettings[3].setting_key|replace({ '_' : ' ' }) }}
+                                    </label>
+                                    <select class="form-control"
+                                           name="{{ quizSettings[3].setting_key }}"
+                                           id="{{ quizSettings[3].setting_key }}" >
+                                        <option value="0" {% if quizSettings[3].setting_value == "0" %}selected{% endif %}>Off</option>
+                                        <option value="1" {% if quizSettings[3].setting_value == "1" %}selected{% endif %}>On</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="float-left pt-2 {{ messageClass }}"><small>{{ message }}</small></div>
+                                    <button type="submit" class="btn float-right btn-warning">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="row bg-warning p-3 justify-content-center" id="instructions">
+                        <div class="col-10">
+                            <strong>Note:</strong> Use this panel to modify the game settings.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block customjs %}{% endblock %}

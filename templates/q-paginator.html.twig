@@ -1,0 +1,16 @@
+<!-- pagination -->
+<div class="row bg-warning pt-2 pb-2" id="thumbnails">
+    {% for thumb in paginatorData %}
+        <div class="col-4 col-sm-3 col-md-2 pt-1 text-center">
+            <div class="{{ thumb.thumbnailClass }}">
+                {% if thumb.thumbnailIsClickable == true %}
+                <a href="{{ thumb.thumbnailLink }}" title="quiz question">
+                    {% endif %}
+                    <img src="img/{{ thumb.thumbnailFileName }}" alt="quiz question thumbnail" class="img-fluid quiz-question-thumb"/>
+                    {% if thumb.thumbnailIsClickable == true %}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

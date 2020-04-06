@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <!-- Main -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 pt-5 pb-5">
+
+                    <!-- title -->
+                    <div class="row bg-info pt-3 pb-2" id="title-bar">
+                        <div class="col-12 p-1 pl-4">
+                            <h2 class="text-left"><strong>Welcome!</strong></h2>
+                        </div>
+                    </div>
+
+                    <!-- Intro -->
+                    <div class="row bg-warning pt-2" id="intro">
+                        <div class="col pt-2 pb-3 text-center">
+                            <strong>Please Select a Topic Below:</strong>
+                        </div>
+                    </div>
+
+                    <!-- Topic Selection -->
+                    <div class="row bg-info pt-4 pb-2 justify-content-center" id="image-box">
+                        {% for item in topicsList %}
+                            <div class="col-12 pt-1 pb-5 text-center">
+                                <a href="quiz.php?topic={{ item.topic }}" title="start quiz">
+                                    <img src="img/{{ item.image }}" alt="quiz topic"
+                                         class="img-fluid quiz-question-cover pb-2"/><br>
+                                    <span class="text-dark"><strong>{{ item.topic }}</strong></span>
+                                </a>
+                            </div>
+                        {% else %}{# if topicsList is empty #}
+                            <div class="col-12 mt-5 mb-5 pt-5 pb-5 text-center">
+                                Error: No Topics Found.
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="row bg-warning p-3 justify-content-center" id="instructions">
+                        <div class="col-10">
+                            <strong>Instructions:</strong> Once the game starts, for each picture, you have to type in
+                            the right answer and click
+                            Next. How many questions can you answer before the timer runs out?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block customjs %}{% endblock %}

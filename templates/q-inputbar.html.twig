@@ -1,0 +1,46 @@
+<!-- form -->
+<div class="row bg-warning pt-2" id="user-input">
+    <div class="col pt-3">
+        <form action="{{ formActionTargetWithoutTopic }}" method="POST">
+            <div class="form-row">
+                <div class="col-3 form-group text-left order-3">
+                    <button type="submit" name="btn-next" class="btn btn-info" {{ inputDisabledStatus }}>
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="col-6 form-group text-center order-2">
+                    <input type="hidden" name="from-page" value="{{ pageNumber }}"/>
+
+                    {% if gameStatus is same as("notStarted") %}
+                        <input type="text" placeholder="Click the Start Button When Ready..." size="50"
+                               name="user-answer" class="form-control" disabled/>
+                    {% endif %}
+
+                    {% if gameStatus is same as("active") %}
+                        {% if thisQuestionIsAnswered %}
+                            <div class="pt-2 text-success">
+                                <strong>{{ answer }}</strong>
+                            </div>
+                        {% else %}
+                            <input type="text" placeholder="Type Your Guess" size="50" name="user-answer"
+                                   class="form-control text-dark" autofocus/>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if gameStatus is same as("ended") %}
+                        <div class="pt-2 {{ answerClass }}">
+                            <strong>{{ answer }}</strong>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-3 form-group text-right order-1">
+                    <button type="submit" name="btn-prev" class="btn btn-info" {{ inputDisabledStatus }} >
+                        <i class="fas fa-arrow-left"></i> Prev
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <!-- Main -->
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-8 pt-5 pb-5">
+
+                    <!-- title -->
+                    <div class="row bg-info pt-3 pb-2" id="title-bar">
+                        <div class="col-12 p-1 pl-4">
+                            <h2 class="text-left"><strong>Admin Panel - Log in</strong></h2>
+                        </div>
+                    </div>
+
+                    <!-- Intro -->
+                    <div class="row bg-warning pt-2" id="intro">
+                        <div class="col pt-2 pb-3 text-center">
+                            <strong>Please Enter Your Password Below:</strong>
+                        </div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="row bg-info pt-4 pb-2 justify-content-center" id="image-box">
+                        <div class="col-8 col-md-6 pt-3 pb-5 text-center">
+                            <form action="#" method="POST">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    {% if errorMessage is not empty %}
+                                        <div class="float-left pt-2 pb-3">{{ errorMessage }}</div>
+                                    {% endif %}
+                                    <input type="submit" value="Login" class="btn float-right btn-warning">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="row bg-warning p-3 justify-content-center" id="instructions">
+                        <div class="col-10">
+                            <strong>Note:</strong> The admin panel is used to change the global settings of the
+                            quizzes, as well as adding, editing and updating quiz questions. <strong>The password is: 123</strong>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block customjs %}{% endblock %}
