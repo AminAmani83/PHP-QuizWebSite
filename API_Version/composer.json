@@ -1,0 +1,7 @@
+{
+  "require": {
+    "bcosca/fatfree": "^3.7",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  }
+}
