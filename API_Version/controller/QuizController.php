@@ -1,4 +1,5 @@
 <?php
+use \Firebase\JWT\JWT;
 
 class QuizController extends MainController
 {
@@ -14,22 +15,36 @@ class QuizController extends MainController
 
     /**
      * Display the List of All Topics
+     * Visibility: Public
+     * http://localhost/MyCode/7_API/quiz/topics
      */
     public function showAllTopics()
     {
         $topicsList = $this->modelTopic->getAllTopicsWithImages();
-        echo json_encode($topicsList);
+		
+		 // Use full URL for images:
+        $result = array();
+        foreach ($topicsList as $topic) {
+            $topic['image'] = $this->f3->get('serverProtocol') . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . "/" . $this->f3->get('imageFolderName') . "/" . $topic['image'];
+            $result[] = $topic;
+        }
+		
+        echo json_encode($result);
         die();
     }
 
-
     /**
-     * Display a certain number of quiz question based on Topic
+     * Display a certain number of quiz question based on Topic,
+     * Visibility: Only registered users
+     * Sample: http://localhost/MyCode/7_API/quiz/1/5
      * @param $f
      * @param $params
      */
     public function showQuizByTopic($f, $params)
     {
+        // Only for users
+        $this->authenticate();
+
         // Fetch questions from DB
         $quizQuestions = $this->modelQuestion->fetchQuizByTopic($params['topicId'], $params['qCount']);
 

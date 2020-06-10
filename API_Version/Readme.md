@@ -2,15 +2,14 @@
 
 See all available topics, their IDs and their cover images:
 
-/quiz/topics
+http://localhost/API/quiz/topics
 
 Example Response:
 
-[{"id":"1","topic":"Animation","image":"animation\/1.jpg"},{"id":"4","topic":"Logo","image":"logo\/1.png"},{"id":"2","topic":"Movie","image":"movie\/1.jpg"},{"id":"3","topic":"People","image":"people\/1.jpg"},{"id":"5","topic":"Puzzle","image":"puzzle\/1.jpg"}]
+[{"id":"1","topic":"Animation","image":"http:\/\/localhost\/API\/img\/animation\/1.jpg"},{"id":"4","topic":"Logo","image":"http:\/\/localhost\/API\/img\/logo\/1.png"},{"id":"2","topic":"Movie","image":"http:\/\/localhost\/API\/img\/movie\/1.jpg"},{"id":"3","topic":"People","image":"http:\/\/localhost\/API\/img\/people\/1.jpg"},{"id":"5","topic":"Puzzle","image":"http:\/\/localhost\/API\/img\/puzzle\/1.jpg"}]
 
 
-
-// B. Quiz Questions
+// B. Quiz Questions (only available to registered users)
 
 Choose (n) questions from topic ID number (m):
 
@@ -22,4 +21,4 @@ Example URL:
 
 Example Response:
 
-[{"answer":"Ice Age","image":"animation\/3.jpg"},{"answer":"Lion King","image":"animation\/15.jpg"},{"answer":"Big Hero 6","image":"animation\/17.jpg"}]
+[{"answer":"Ice Age","image":"http:\/\/localhost\/API\/img\/animation\/3.jpg"},{"answer":"Lion King","image":"http:\/\/localhost\/API\/img\/animation\/15.jpg"},{"answer":"Big Hero 6","image":"http:\/\/localhost\/API\/img\/animation\/17.jpg"}]

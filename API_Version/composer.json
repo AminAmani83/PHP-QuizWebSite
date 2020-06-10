@@ -2,6 +2,8 @@
   "require": {
     "bcosca/fatfree": "^3.7",
     "ext-pdo": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "auth0/auth0-php": "^7.2",
+    "kodus/file-cache": "^1.1"
   }
 }
