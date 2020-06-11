@@ -30,15 +30,15 @@ Example Response for Un-Authorized Access:
 
 // C. Settings (only available to admin users)
 
-View Admin Settings .
+View Current Admin Settings for the Website version:
 
 Example URL:
 
 http://localhost/API/quiz/private/game-settings
 
-Example Response: (For now, temporaryly responding with the topics list)
+Example Response:
 
-[{"id":"1","topic":"Animation","image":"http:\/\/localhost\/API\/img\/animation\/1.jpg"},{"id":"4","topic":"Logo","image":"http:\/\/localhost\/API\/img\/logo\/1.png"},{"id":"2","topic":"Movie","image":"http:\/\/localhost\/API\/img\/movie\/1.jpg"},{"id":"3","topic":"People","image":"http:\/\/localhost\/API\/img\/people\/1.jpg"},{"id":"5","topic":"Puzzle","image":"http:\/\/localhost\/API\/img\/puzzle\/1.jpg"}]
+[{id: "1", setting_key: "admin_password","TheHashedPassword"},{id: "2", setting_key: "requested_number_of_questions", setting_value: "6"},{id: "3", setting_key: "seconds_per_question", setting_value: "15"},{id: "4", setting_key: "placeholder_image", setting_value: "question-placeholder.jpg"},{id: "5", setting_key: "javascript_assist_mode", setting_value: "1"}]
 
 Example Response for Un-Authorized Access:
 

@@ -2,20 +2,18 @@
 
 class AdminController extends MainController
 {
-    private $modelTopic;
-    private $modelQuestion;
+    private $modelSetting;
 
     public function __construct()
     {
         parent::__construct();
-        $this->modelQuestion = new Question($this->db, 'quiz');
-        $this->modelTopic = new Topic($this->db, 'quiz_topics');
+        $this->modelSetting = new Setting($this->db, 'quiz_settings');
     }
 
     /**
      * Display the Game Setting Variables
      * Visibility: Registered users with an Admin role
-     * http://localhost/MyCode/7_API/quiz/private/game-settings
+     * http://localhost/API/quiz/private/game-settings
      */
     public function showGameSettings()
     {
@@ -23,8 +21,8 @@ class AdminController extends MainController
         $this->checkRole("admin");
 
         // temporary:
-        $topicsList = $this->modelTopic->getAllTopicsWithImages();
-        echo json_encode($topicsList);
+        $settingsList = $this->modelSetting->getAllSettings();
+        echo json_encode($settingsList);
         die();
     }
 }
