@@ -4,4 +4,9 @@ RewriteCond	%{REQUEST_FILENAME}	!-d
 RewriteCond	%{REQUEST_FILENAME} !-l
 RewriteRule	.*	index.php	[L,QSA]
 
-#Options	-Indexes
+Options	-Indexes
+
+# To avoid CORS issues when using Auth
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Headers "Authorization"
+</IfModule>
