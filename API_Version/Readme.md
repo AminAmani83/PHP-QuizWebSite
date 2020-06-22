@@ -28,7 +28,7 @@ Example Response for Un-Authorized Access:
 {"message":"No token provided."}
 
 
-// C. Settings (only available to admin users)
+// C. Settings (only available to admin users. For this demo, anyone with a Gmail account is considered as Admin.)
 
 View Current Admin Settings for the Website version:
 
