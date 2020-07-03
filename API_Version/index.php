@@ -8,7 +8,10 @@ $f3 = Base::instance();
 // Configure Fat Free Framework
 $f3->config("inc/config.ini");
 
-/** Public Routes  */
+/** Redirect Main Page */
+$f3->redirect('GET|HEAD /', '/instructions.php');
+
+/** Public Routes */
 // http://localhost/MyCode/7_API/quiz/topics
 $f3->route('GET /quiz/topics', 'QuizController->showAllTopics');
 // Sample: http://localhost/MyCode/7_API/quiz/1/5

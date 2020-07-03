@@ -1,0 +1,80 @@
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Overlock', cursive;
+    text-transform: capitalize;
+}
+
+header {
+    background-image: url("../img/header-bg.jpg");
+    background-size: cover;
+    padding: 30px 30px;
+    color: white;
+}
+
+.nav-item a {
+    padding: 1em 2em !important;
+}
+
+/* Quiz Thumbnail Images */
+#thumbnails img {
+    opacity: 0.5;
+}
+
+#thumbnails div.active {
+    border: 3px solid white !important;
+}
+
+.button-as-link {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.quiz-question-image {
+    max-height: 360px;
+}
+
+.quiz-question-thumb {
+    max-height: 120px;
+}
+
+/* Index page */
+.quiz-question-cover {
+    max-height: 360px;
+}
+
+.quiz-question-cover:hover {
+    opacity: 0.9;
+}
+
+/* About Page */
+#about-text h5 {
+    padding-top: 15px;
+}
+
+#about-text h4 {
+    padding-top: 20px;
+}
+
+/* Admin Page */
+.message-success {
+    color: #043927;
+}
+
+.message-danger {
+    color: rgb(150, 5, 10);
+}
